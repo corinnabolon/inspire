@@ -5,6 +5,8 @@ import { isValidProp } from './utils/IsValidProp.js'
 import { loadState } from './utils/Store.js'
 import { Image } from './models/Image.js'
 import { Quote } from "./models/Quote.js"
+import { Weather } from "./models/Weather.js"
+
 
 class ObservableAppState extends EventEmitter {
   page = ''
@@ -27,6 +29,10 @@ class ObservableAppState extends EventEmitter {
 
   /** @type {import('./models/Quote.js').Quote | null} */
   dailyQuote = null
+
+
+  /** @type {import('./models/Weather.js').Weather | null} */
+  nowWeather = null
 
   // Used to load initial data
   init() {
