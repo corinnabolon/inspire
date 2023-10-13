@@ -11,12 +11,23 @@ function _drawTodos() {
   setHTML("todo-list", content)
 }
 
+function _drawTodoLength() {
+  let uncompletedTodos = []
+  AppState.todos.forEach(todo => {
+    if (!todo.completed) {
+      uncompletedTodos.push(todo)
+    }
+  })
+  setHTML("todo-count", `${uncompletedTodos.length} to-do's remining`)
+}
+
 export class TodosController {
   constructor() {
     console.log("TodosController loaded")
 
     AppState.on('account', this.getTodo)
     AppState.on('todos', _drawTodos)
+    AppState.on('todos', _drawTodoLength)
     // AppState.on('account', _drawTodos)
   }
 
