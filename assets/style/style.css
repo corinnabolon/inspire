@@ -1,5 +1,19 @@
 /* BASIC STYLES HERE */
+body {
+  background-size: cover;
+  background-position: center;
+}
+
 p {
   margin: 0;
   padding: 0;
+}
+
+.quote-author {
+  visibility: hidden;
+}
+
+.quote-content:hover+.quote-author {
+  visibility: visible;
+  transition: ease-in-out .75s;
 }

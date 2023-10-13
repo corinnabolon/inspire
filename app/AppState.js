@@ -3,6 +3,8 @@ import { Value } from './models/Value.js'
 import { EventEmitter } from './utils/EventEmitter.js'
 import { isValidProp } from './utils/IsValidProp.js'
 import { loadState } from './utils/Store.js'
+import { Image } from './models/Image.js'
+import { Quote } from "./models/Quote.js"
 
 class ObservableAppState extends EventEmitter {
   page = ''
@@ -18,6 +20,13 @@ class ObservableAppState extends EventEmitter {
    * @type {Todo[]}
    */
   todos = []
+
+  /** @type {import('./models/Image.js').Image | null} */
+  backgroundPic = null
+
+
+  /** @type {import('./models/Quote.js').Quote | null} */
+  dailyQuote = null
 
   // Used to load initial data
   init() {
