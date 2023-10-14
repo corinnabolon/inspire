@@ -68,10 +68,10 @@ function authButton(user) {
   if (AuthService.loading) { return '' }
   return user && user.isAuthenticated
     ? /* html */ `
-    <button class="btn btn-small btn-dark text-muted selectable" onclick="app.AuthController.logout()"><i class="mdi mdi-logout f-16 text-white"></i></button>
+    <button class="btn btn-small text-muted selectable" onclick="app.AuthController.logout()"><i class="mdi mdi-logout f-16 text-white"></i></button>
   `
     : /* html */ `
-    <button class="btn btn-dark selectable" onclick="app.AuthController.login()">login</button>
+    <button class="btn selectable" onclick="app.AuthController.login()">login</button>
   `
 }
 
@@ -79,8 +79,8 @@ function avatarTemplate(account) {
   return account
     ? /* html */ `
     <div class="mr-2">
+    <span class="mx-1">Hello, ${account.name}!</span>
       <img class="rounded-circle" src="${account.picture}" alt="${account.name}" height="45"/>
-      <span class="mx-1">${account.name}</span>
       </div>`
     : AuthService.loading
       ? /* html */ `

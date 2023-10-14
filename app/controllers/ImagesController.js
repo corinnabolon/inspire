@@ -2,7 +2,7 @@ import { AppState } from "../AppState.js"
 import { api } from "../services/AxiosService.js"
 import { imagesService } from "../services/ImagesService.js"
 import { Pop } from "../utils/Pop.js"
-import { setHTML } from "../utils/Writer.js"
+import { setHTML, setText } from "../utils/Writer.js"
 
 function _drawBackgroundImage() {
   let BgPic = AppState.backgroundPic
@@ -11,7 +11,10 @@ function _drawBackgroundImage() {
   }
   let BgPicUrl = BgPic.imgUrl
   document.body.style.backgroundImage = `url(${BgPicUrl})`
+}
 
+function _drawPhotographerName() {
+  setText("photographerName", `Image by ${AppState.backgroundPic.author}`)
 }
 
 export class ImagesController {
@@ -19,6 +22,7 @@ export class ImagesController {
     this.getRandomImage()
 
     AppState.on('backgroundPic', _drawBackgroundImage)
+    AppState.on('backgroundPic', _drawPhotographerName)
   }
 
   async getRandomImage() {

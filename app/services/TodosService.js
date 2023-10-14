@@ -61,6 +61,15 @@ class TodosService {
     AppState.emit("todos")
   }
 
+  showHideTodos() {
+    if (AppState.wantToShowTodos) {
+      AppState.wantToShowTodos = false
+    } else {
+      AppState.wantToShowTodos = true
+    }
+  }
+  //Easier way to type this?
+
 
 
 }

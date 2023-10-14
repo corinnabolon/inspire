@@ -2,7 +2,8 @@ import { AppState } from "../AppState.js"
 import { todosService } from "../services/TodosService.js"
 import { getFormData } from "../utils/FormHandler.js"
 import { Pop } from "../utils/Pop.js"
-import { setHTML } from "../utils/Writer.js"
+import { setHTML, setText } from "../utils/Writer.js"
+
 
 function _drawTodos() {
   let content = ``
@@ -18,7 +19,17 @@ function _drawTodoLength() {
       uncompletedTodos.push(todo)
     }
   })
-  setHTML("todo-count", `${uncompletedTodos.length} to-do's remining`)
+  setText("todo-count", `${uncompletedTodos.length} to-do's remaining
+    `)
+  _drawMdiArrow()
+}
+
+function _drawMdiArrow() {
+  if (!AppState.wantToShowTodos) {
+    setHTML("mdi-arrow", `<i class='mdi mdi-chevron-double-right'></i>`)
+  } else {
+    setHTML("mdi-arrow", `<i class='mdi mdi-chevron-double-left'></i>`)
+  }
 }
 
 export class TodosController {
@@ -28,6 +39,7 @@ export class TodosController {
     AppState.on('account', this.getTodo)
     AppState.on('todos', _drawTodos)
     AppState.on('todos', _drawTodoLength)
+    // AppState.on('wantsToShowTodos', _drawMdiArrow)
     // AppState.on('account', _drawTodos)
   }
 
@@ -83,6 +95,20 @@ export class TodosController {
       Pop.error(error)
       console.error(error)
     }
+  }
+
+  showHideToDos() {
+    console.log("AppState wanttoshow", AppState.wantToShowTodos)
+    todosService.showHideTodos()
+    console.log("AppState wanttoshow", AppState.wantToShowTodos)
+    if (AppState.wantToShowTodos) {
+      let element = document.getElementById("todos")
+      element.classList.remove("hidden")
+    } else {
+      let element = document.getElementById("todos")
+      element.classList.add("hidden")
+    }
+    _drawMdiArrow()
   }
 
 

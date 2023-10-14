@@ -2,6 +2,7 @@
 body {
   background-size: cover;
   background-position: center;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 p {
@@ -11,9 +12,33 @@ p {
 
 .quote-author {
   visibility: hidden;
+  transition: ease-in-out .50s;
 }
 
 .quote-content:hover+.quote-author {
   visibility: visible;
-  transition: ease-in-out .75s;
+  transition: ease-in-out .50s;
+  background-color: #12121280;
+  backdrop-filter: blur(15px);
+  border-radius: 5px;
+}
+
+.bg-filter {
+  background-color: #12121280;
+  backdrop-filter: blur(15px);
+  border-radius: 10px;
+}
+
+.clock-font {
+  font-size: 36pt;
+}
+
+.weather-box {
+  border: 1px solid whitesmoke;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.hidden {
+  visibility: hidden;
 }

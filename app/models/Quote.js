@@ -10,10 +10,10 @@ export class Quote {
 
 
   get quoteTemplate() {
-    return `<div class="quote-content">
+    return `<div class="quote-content bg-filter rounded-pill p-2">
     <p>${this.content}</p>
     </div>
-    <div class="quote-author">
+    <div class="quote-author p-1 me-3 rounded-pill">
     <p>${this.author}</p>
     </div>    
     `

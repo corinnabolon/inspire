@@ -2,6 +2,7 @@ export class Weather {
   constructor(data) {
     this.temperature = data.main.temp
     this.description = data.weather[0].main
+    this.icon = "https://openweathermap.org/img/wn/" + data.weather[0].icon + ".png"
     this.Ftemp = Math.round((data.main.temp - 273.15) * (9 / 5) + 32)
     this.Ctemp = Math.round(data.main.temp - 273.15)
     this.wantsFtemp = true
@@ -11,9 +12,14 @@ export class Weather {
 
   get weatherTemplate() {
     return `
-    <div>
+    <div class="d-flex weather-box">
+    <div class="p-2">
     ${this.weatherCorF}
     <p>${this.description}</p>
+    </div>
+    <div class="py-2">
+    <img src='${this.icon}' alt='${this.description}'>
+    </div>
     </div>
     
     `

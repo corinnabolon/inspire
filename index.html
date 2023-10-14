@@ -10,32 +10,17 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.0.96/css/materialdesignicons.min.css"
     integrity="sha512-fXnjLwoVZ01NUqS/7G5kAnhXNXat6v7e3M9PhoMHOTARUMCaf5qNO84r5x9AFf5HDzm3rEZD8sb/n6dZ19SzFA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style/main.css">
   <link rel="stylesheet" href="assets/style/style.css">
-  <title>checkpoint</title>
+  <title>Inspire</title>
 </head>
 
 <body>
   <!-- SECTION -->
   <header>
-    <nav class="navbar navbar-dark navbar-expand bg-dark text-light px-2">
-      <a class="navbar-brand" href="#">
-        <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
-          loading="lazy">
-        <span class="ml-2">checkpoint</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <!-- NAVLINKS -->
-          <a href="#/about" class="nav-link">About</a>
-        </div>
-      </div>
-      <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
-    </nav>
   </header>
 
   <!-- SECTION -->
@@ -44,27 +29,40 @@
     <section id="router-view">
       <!-- primary viewport -->
       <div class="container-fluid">
-        <section class="row">
-          <div class="col-5">
-            <div class="d-flex align-items-center">
-              <form onsubmit="app.TodosController.createTodo(event)">
-                <input class="mt-3" id="description" name="description" type="text" required minlength="3"
-                  maxlength="30" placeholder="New To-Do" class="fs-4 title-input">
-                </input>
-                <button type="submit" class="btn btn-success mt-2 text-dark fw-bold mt-0">Make New To-do</button>
-              </form>
+        <section class="row d-flex justify-content-between">
+          <div class="col-3 my-3">
+            <div class="bg-filter text-light fs-4 ps-2 px-3 mt-2 d-flex justify-content-between">
+              <p id="todo-count"></p>
+              <class= role="button" onclick="app.TodosController.showHideToDos()" class="fs-4 ps-3" id="mdi-arrow">
+                </p>
             </div>
-            <div id="todo-count">
+            <div id="see-todos">
             </div>
-            <div id="todo-list">
-              <!-- <p>${this.description}</p><i class="mdi mdi-checkbox-blank-outline"></i> -->
+            <div id="todos" class="hidden bg-filter text-light fs-5 mt-2 p-2 pe-4">
+              <div class="d-flex align-items-end">
+                <form onsubmit="app.TodosController.createTodo(event)" class="d-flex flex-column">
+                  <div>
+                    <input class="mt-3" id="description" name="description" type="text" required minlength="3"
+                      maxlength="30" placeholder="New To-Do" class="fs-4 title-input">
+                    </input>
+                  </div>
+                  <div class="text-end">
+                    <button type="submit" class="btn btn-success mt-2 text-dark fw-bold mt-0">Make New
+                      To-do</button>
+                  </div>
+                </form>
+              </div>
+              <div id="todo-list" class="px-2">
+                <!-- <p>${this.description}</p><i class="mdi mdi-checkbox-blank-outline"></i> -->
+              </div>
             </div>
           </div>
-
-          <div class="col-3">
-            <div id="clockSpot"></div>
-            <div id="quoteSpot"></div>
-            <div id="weatherSpot"></div>
+          <div class="col-1 me-2">
+            <div class="row">
+              <div class="col-12 bg-filter text-light p-1 mt-2">
+                <p id="photographerName"></p>
+              </div>
+            </div>
           </div>
         </section>
       </div>
@@ -74,9 +72,33 @@
   </main>
 
   <!-- SECTION -->
-  <footer class="bg-dark text-light">
-    <div class="text-center no-select">
-      <p class="mb-0"><small>Made with 💖 by CodeWorks</small></p>
+  <footer>
+    <div class="container">
+      <section class="row">
+        <div class="col-12 d-flex align-items-end justify-content-center text-light">
+          <div id="quoteSpot" class="d-flex flex-column align-items-end justify-content-center fw-bold mb-3">
+          </div>
+        </div>
+        <div class="col-12 mb-4">
+          <div class="text-light px-5 py-3 d-flex align-items-center  justify-content-between bg-filter rounded-pill">
+            <!-- <a class="navbar-brand" href="#">
+              <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
+                loading="lazy">
+              <span class="ml-2">Inspire</span>
+            </a> -->
+            <div id="weatherSpot"></div>
+            <div id="clockSpot" class="clock-font"></div>
+            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav"> -->
+            <!-- NAVLINKS -->
+            <div class="justify-content-end align-items-center d-flex" id="authstate"></div>
+          </div>
+        </div>
+      </section>
     </div>
   </footer>
 

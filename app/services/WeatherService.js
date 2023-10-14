@@ -9,10 +9,8 @@ class WeatherService {
 
   async getWeather() {
     const res = await api.get("api/weather")
-    console.log("Weather", res.data)
     let weather = new Weather(res.data)
     AppState.nowWeather = weather
-    console.log(AppState.nowWeather)
   }
 
   flipFandC() {
@@ -21,7 +19,6 @@ class WeatherService {
     } else {
       AppState.nowWeather.wantsFtemp = true
     }
-    console.log(AppState.nowWeather.wantsFtemp)
     AppState.emit("nowWeather")
   }
   //What is more a concise way of doing the above?

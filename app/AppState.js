@@ -34,6 +34,9 @@ class ObservableAppState extends EventEmitter {
   /** @type {import('./models/Weather.js').Weather | null} */
   nowWeather = null
 
+  /** @type boolean */
+  wantToShowTodos = false
+
   // Used to load initial data
   init() {
 
