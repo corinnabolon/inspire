@@ -72,7 +72,7 @@ function authButton(user) {
     <button class="btn btn-small text-muted selectable" onclick="app.AuthController.logout()"><i class="mdi mdi-logout f-16 text-white"></i></button>
   `
     : /* html */ `
-    <button class="btn selectable" onclick="app.AuthController.login()">login</button>
+    <button class="btn selectable text-light" onclick="app.AuthController.login()">login</button>
   `
 }
 
