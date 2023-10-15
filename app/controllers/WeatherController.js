@@ -10,7 +10,6 @@ function _drawWeather() {
 
 export class WeatherController {
   constructor() {
-    console.log("Weather Controller loaded")
     this.getWeather()
 
     AppState.on("nowWeather", _drawWeather)

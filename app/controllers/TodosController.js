@@ -34,8 +34,6 @@ function _drawMdiArrow() {
 
 export class TodosController {
   constructor() {
-    console.log("TodosController loaded")
-
     AppState.on('account', this.getTodo)
     AppState.on('todos', _drawTodos)
     AppState.on('todos', _drawTodoLength)
@@ -46,11 +44,9 @@ export class TodosController {
   async createTodo(event) {
     try {
       event.preventDefault()
-      console.log("Testing the button")
       let form = event.target
       let todoData = getFormData(form)
       await todosService.createTodo(todoData)
-      console.log("Todo created!")
       Pop.success("New to-do created!")
       form.reset()
     } catch (error) {
@@ -98,9 +94,7 @@ export class TodosController {
   }
 
   showHideToDos() {
-    console.log("AppState wanttoshow", AppState.wantToShowTodos)
     todosService.showHideTodos()
-    console.log("AppState wanttoshow", AppState.wantToShowTodos)
     if (AppState.wantToShowTodos) {
       let element = document.getElementById("todos")
       element.classList.remove("hidden")

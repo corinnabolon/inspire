@@ -1,6 +1,7 @@
 import { AppState } from '../AppState.js'
 import { audience, clientId, domain } from '../env.js'
 import { AuthService } from '../services/AuthService.js'
+import { clockService } from "../services/ClockService.js"
 import { logger } from '../utils/Logger.js'
 
 function drawUser() {
@@ -76,10 +77,11 @@ function authButton(user) {
 }
 
 function avatarTemplate(account) {
+  clockService.setGreeting()
   return account
     ? /* html */ `
     <div class="mr-2">
-    <span class="mx-1">Hello, ${account.name}!</span>
+    <span class="mx-1">Good ${AppState.timeOfDay}, ${account.name}!</span>
       <img class="rounded-circle" src="${account.picture}" alt="${account.name}" height="45"/>
       </div>`
     : AuthService.loading

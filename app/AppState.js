@@ -8,6 +8,7 @@ import { Quote } from "./models/Quote.js"
 import { Weather } from "./models/Weather.js"
 
 
+
 class ObservableAppState extends EventEmitter {
   page = ''
   user = null
@@ -36,6 +37,10 @@ class ObservableAppState extends EventEmitter {
 
   /** @type boolean */
   wantToShowTodos = false
+
+  wantsTwentyFourHourClock = false
+
+  timeOfDay = ""
 
   // Used to load initial data
   init() {

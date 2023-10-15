@@ -12,7 +12,6 @@ function _drawQuote() {
 
 export class QuotesController {
   constructor() {
-    console.log("QuotesController loaded")
     this.getQuote()
 
     AppState.on("dailyQuote", _drawQuote)
