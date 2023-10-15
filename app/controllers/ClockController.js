@@ -6,6 +6,7 @@ import { setHTML } from "../utils/Writer.js"
 function _drawClock() {
   let newClock = new Clock()
   let formattedTimeLower = newClock.formattedTime.toLowerCase()
+  let formattedTimeNoLetters = formattedTimeLower.replace('am' || 'pm', '')
   let formattedTimeLowerNoSpace = formattedTimeLower.replace(/\s/g, "")
   if (AppState.wantsTwentyFourHourClock == false) {
     console.log("wants 12 hour clock")
@@ -15,7 +16,7 @@ function _drawClock() {
     setHTML("clockSpot", `<p onclick='app.ClockController.switchClockPreference()' role='button'>${formattedTimeLowerNoSpace}</p>`)
   } else {
     console.log("wants 24 hour clock")
-    let twentyFourHourSecondString = formattedTimeLowerNoSpace.slice(2)
+    let twentyFourHourSecondString = formattedTimeNoLetters.slice(2)
     if (newClock.hours.toString()[0] == "1" && newClock.hours.toString().length >= 2) {
       let newString = newClock.hours.toString() + twentyFourHourSecondString
       setHTML("clockSpot", `<p onclick='app.ClockController.switchClockPreference()' role='button'>${newString}</p>`)
