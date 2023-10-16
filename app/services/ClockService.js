@@ -31,7 +31,7 @@ class ClockService {
     //   AppState.account.wantsTwentyFourHourClock = false
     //   accountService.editAccount(AppState.account)
     // }
-    //This is what I tried to put it into the account in the api, but it didn't work because that account didn't have a wantsTwentyFourHourClock property and I didn't know whether it's possible to add one...
+    //This is what I tried to put it into the account in the api, but it didn't work because that account didn't have a wantsTwentyFourHourClock property and I didn't know whether it's possible to add one... <--save into local storage using the account id
   }
 
 

@@ -53,13 +53,13 @@ class TodosService {
   }
 
   showHideTodos() {
-    if (AppState.wantToShowTodos) {
-      AppState.wantToShowTodos = false
-    } else {
-      AppState.wantToShowTodos = true
-    }
+    AppState.wantToShowTodos = !AppState.wantToShowTodos
+    // if (AppState.wantToShowTodos) {
+    //   AppState.wantToShowTodos = false
+    // } else {
+    //   AppState.wantToShowTodos = true
+    // }
   }
-  //Easier way to type this?
 
 
 

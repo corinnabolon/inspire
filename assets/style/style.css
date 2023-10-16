@@ -42,3 +42,19 @@ p {
 .hidden {
   visibility: hidden;
 }
+
+@media (max-width: 600px) {
+  body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .clock-font {
+    font-size: 20pt;
+  }
+
+  .weather-box {
+    padding: 1px;
+  }
+}

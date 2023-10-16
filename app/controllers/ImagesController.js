@@ -9,7 +9,7 @@ function _drawBackgroundImage() {
   if (BgPic == null) {
     return
   }
-  let BgPicUrl = BgPic.imgUrl
+  let BgPicUrl = BgPic.largeImgUrl
   document.body.style.backgroundImage = `url(${BgPicUrl})`
 }
 

@@ -26,7 +26,10 @@ export class Weather {
   }
 
   get weatherCorF() {
-    return this.wantsFtemp ? `<p>${this.Ftemp} <span role="button" onclick="app.WeatherController.flipFandC()">F</span></p>` : `<p>${this.Ctemp} <span role="button" onclick="app.WeatherController.flipFandC()">C</span></p>`
+    return this.wantsFtemp ?
+      `<p>${this.Ftemp} <span role="button" onclick="app.WeatherController.flipFandC()">F</span></p>`
+      :
+      `<p>${this.Ctemp} <span role="button" onclick="app.WeatherController.flipFandC()">C</span></p>`
   }
 
 }

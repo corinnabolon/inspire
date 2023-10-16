@@ -95,11 +95,10 @@ export class TodosController {
 
   showHideToDos() {
     todosService.showHideTodos()
+    let element = document.getElementById("todos")
     if (AppState.wantToShowTodos) {
-      let element = document.getElementById("todos")
       element.classList.remove("hidden")
     } else {
-      let element = document.getElementById("todos")
       element.classList.add("hidden")
     }
     _drawMdiArrow()

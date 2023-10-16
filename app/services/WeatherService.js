@@ -14,11 +14,12 @@ class WeatherService {
   }
 
   flipFandC() {
-    if (AppState.nowWeather.wantsFtemp) {
-      AppState.nowWeather.wantsFtemp = false
-    } else {
-      AppState.nowWeather.wantsFtemp = true
-    }
+    // if (AppState.nowWeather.wantsFtemp) {
+    //   AppState.nowWeather.wantsFtemp = false
+    // } else {
+    //   AppState.nowWeather.wantsFtemp = true
+    // }
+    AppState.nowWeather.wantsFtemp = !AppState.nowWeather.wantsFtemp
     AppState.emit("nowWeather")
   }
   //What is more a concise way of doing the above?
